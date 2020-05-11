@@ -1,57 +1,30 @@
+import { displayNewStatement } from './sets.js';
+import { setGen } from './sets.js';
+import { optionsMoreLess } from './sets.js';
 
-let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let optionsMoreLess = [" es mayor que ", " es menor que "];
-let  score = 0;
-let scoreDisplay = document.getElementById("score");
+let score = 0
+let set01 = setGen();
+let comparison = optionsMoreLess();
+let set02 = setGen();
+let statement1 = displayNewStatement(set01, comparison, set2); 
+let done = false; 
 let question = document.getElementById("question");
 let declaracion1 = document.getElementById("statement1");
-var set01
-var comp
-var set02
 
-function randComp(array){
-  return optionsMoreLess[Math.floor(Math.random() * optionsMoreLess.length)];
-  
-}
-
-function randomLetterGeneration() {
-  return letters[Math.floor(Math.random() * letters.length)]+letters[Math.floor(Math.random() * letters.length)]+letters[Math.floor(Math.random() * letters.length)]; 
-}
-
-
-statement1.innerHTML = set01 + comp + set02;
 question.innerHTML = `¿Qué relación tiene ${set01} frente a ${set02}?`
 
-function resetStatement(){
-  set01 = randomLetterGeneration();
-  comp = randComp();
-  set02 = randomLetterGeneration();
-  statement1.innerHTML = set01 + comp + set02;
-  question.innerHTML = `¿Qué relación tiene ${set01} frente a ${set02}?`;
-
-}
-
-
-
-function chkMore(){
-  if(comp == " es mayor que " ){
+function checker(input){
+  if(input === 'mayor' && comparison === ' es mayor que ') {
     score ++;
-  }else{
-    score --
-  }
-  resetStatement();
-  scoreDisplay.innerHTML = `Your score is ${score}`;
-}
-
-function chkLess(){
-  if(comp == " es menor que "){
+  }else if (input === 'menor' && comparison === ' es menor que ') {
     score ++;
-  }else{
+  } else {
     score --; 
   }
-  resetStatement();
-  scoreDisplay.innerHTML = `Your score is ${score}`;
+  done = true; 
 }
 
-
-resetStatement()
+if (done === true) {
+  displayNewStatement();
+  done = false; 
+}
