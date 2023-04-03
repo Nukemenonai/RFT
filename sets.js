@@ -1,16 +1,13 @@
-function setGen() {
-    let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return letters[Math.floor(Math.random() * letters.length)]+
-           letters[Math.floor(Math.random() * letters.length)]+
-           letters[Math.floor(Math.random() * letters.length)]; 
+const setGroup = () => {
+    return [...Array(3)].map(() => String.fromCharCode(Math.floor(Math.random() * 26) + 65)).join(''); 
 }
 
-function optionsMoreLess() {
+function optionsMoreOrLess() {
     let options = [" es mayor que ", " es menor que "];
     return options[Math.floor(Math.random() * options.length)];
 }
 
-function optionsEqualDiff() {
+function optionsEqualOrDiff() {
     let options = [" es igual a ", " es diferente a "];
     return options[Math.floor(Math.random() * options.length)];
 }
@@ -21,7 +18,9 @@ function displayNewStatement( set1, comp, set2 ){
   
 }
 
-export { displayNewStatement }; 
-export { setGen }; 
-export { optionsMoreLess };
-export { optionsEqualDiff }; 
+module.exports = { 
+    setGroup,
+    optionsMoreOrLess,
+    optionsEqualOrDiff, 
+    displayNewStatement 
+};
