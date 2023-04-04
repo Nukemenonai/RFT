@@ -4,26 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>RFT</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <script src="./js/levelone.js"></script>
 
   </head>
   <body>
-    <h1 align='center'>Prueba de Marcos Relacionales</h1>
-    <br>
-    <div align="center" id="statement1"></div>
-    <br>
-    <div align="center" id="question"></div>
-    <br>
-    <div align="center">
-      <button onclick="checker('mayor')">mayor</button>
-      <button onclick="checker('menor')">menor</button>
-    </div>
-    <br>
-    <div align="center">
-       <p id="score">your score is 0</p>
-    </div>
+    <section id="center">
+      <h1 id="gametitle">Prueba de Marcos Relacionales</h1>
+      <br>
+      <div id="statement1">
+        <p>En la siguiente prueba se te presentarán dos series de letras, en cada una de ellas se te pedirá que indiques si la imagen que se te presenta es mayor o menor que la imagen que se te presenta en la parte superior de la pantalla.</p>
+      </div>
+      <br>
+      <div id="question"></div>
+      <br>
+      <div id="buttons">
+        <button onclick="checker('mayor')">mayor</button>
+        <button onclick="checker('menor')">menor</button>
+      </div>
+      <br>
+      <div id="score-div">
+         <p id="score">your score is 0</p>
+      </div>
+    </section>
     
-   <script src="levelone.js"></script>
 
   </body>
 </html>
