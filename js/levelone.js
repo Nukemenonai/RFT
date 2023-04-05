@@ -23,22 +23,19 @@ let  score = 0;
 let scoreDisplay = document.getElementById("score");
 
 
-function iniciarJuego() {
-  let score = 0;
-  let set01 = setGroup();
-  let comparison = optionsMoreOrLess();
-  let set02 = setGroup();
-  let statement1 = displayNewStatement(set01, comparison, set02);
-  let done = false;
-  let question = document.getElementById('question');
-  let declaration = document.getElementById('statement1');
-  declaration.innerHTML = `<p>${statement1}</p>`;
+let set01 = setGroup();
+let comparison = optionsMoreOrLess();
+let set02 = setGroup();
+let statement1 = displayNewStatement(set01, comparison, set02);
+let done = false;
+let question = document.getElementById('question');
+let declaration = document.getElementById('statement1');
+declaration.innerHTML = `<p>${statement1}</p>`;
 
-  question.innerHTML = `¿Qué relación tiene ${set01} frente a ${set02}?`;
-}
+question.innerHTML = `¿Qué relación tiene ${set01} frente a ${set02}?`;
 
 
-let done = false; 
+
 function checker(input) {
   if (input === 'mayor' && comparison === ' es mayor que ') {
     score++;
@@ -56,6 +53,5 @@ if (done === true) {
 }
 
 
-window.addEventListener('load', iniciarJuego);
 
 
